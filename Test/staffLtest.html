@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>MightyMC Staff - Official Hierarchy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --owner: #ff4b2b; 
+            --staff-manager: #111111; 
+            --manager: #555555; 
+            --admin: #e74c3c;
+            --srmod: #f1c40f; 
+            --mod: #1abc9c; 
+            --helper: #2ecc71;
+            --bg: #050510;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            width: 820px; 
+            margin: 0 auto; 
+        }
+
+        .header { text-align: center; margin-bottom: 25px; }
+        .header h1 { font-size: 2.3rem; margin: 0; letter-spacing: 3px; color: #8a2be2; text-shadow: 0 0 15px rgba(138, 43, 226, 0.5); }
+        .header p { font-size: 0.85rem; color: #444; margin-top: 5px; letter-spacing: 2px; }
+
+        .hierarchy-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .rank-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 12px;
+            width: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rank-title {
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            width: 100%;
+            justify-content: center;
+            letter-spacing: 1px;
+        }
+
+        .members-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .staff-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid;
+            object-fit: cover;
+            margin-bottom: 2px;
+        }
+
+        .name { font-size: 0.9rem; font-weight: bold; color: #fff; }
+        
+        .tag-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0.7;
+        }
+
+        .tag { font-size: 0.7rem; color: #aaa; }
+        .fa-discord { color: #5865F2; font-size: 0.65rem; }
+
+        
+        .c-owner { color: var(--owner); border-color: var(--owner); }
+        .c-staff-manager { color: var(--staff-manager); border-color: var(--staff-manager); }
+        .c-manager { color: var(--manager); border-color: var(--manager); }
+        .c-admin { color: var(--admin); border-color: var(--admin); }
+        .c-srmod { color: var(--srmod); border-color: var(--srmod); }
+        .c-mod { color: var(--mod); border-color: var(--mod); }
+        .c-helper { color: var(--helper); border-color: var(--helper); }
+
+        .bottom-ranks {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr 1fr;
+            gap: 10px;
+            width: 95%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>MIGHTYMC</h1>
+        <p>STAFF List 2026</p>
+    </div>
+
+    <div class="hierarchy-container">
+        
+        <div class="rank-card">
+            <div class="rank-title c-owner">👑 OWNER</div>
+            <div class="members-row">
+                <div class="staff-item">
+                    <img src="MrProfessor_Y.png" class="avatar c-owner">
+                    <div class="name">Tyler.</div>
+                    <div class="tag-wrapper"><i class="fab fa-discord"></i><div class="tag">@MrProfessor_Y</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rank-card">
+            <div class="rank-title c-staff-manager">⬛ STAFF MANAGERS</div>
+            <div class="members-row">
+                <div class="staff-item"><img src="Cudlin.png" class="avatar c-staff-manager"><div class="name">Cudlin</div><div class="tag-wrapper"><i class="fab fa-discord"></i><div class="tag">@Cudlin</div></div></div>
+                <div class="staff-item"><img src="Jevara_VG.png" class="avatar c-staff-manager"><div class="name">Jay</div><div class="tag-wrapper"><i class="fab fa-discord"></i><div class="tag">@Jevara_VG</div></div></div>
+            </div>
+        </div>
+
+        <div class="rank-card">
+            <div class="rank-title c-manager">⚙️ MANAGERS</div>
+            <div class="members-row">
+                <div class="staff-item"><img src="1Mukhtar.png" class="avatar c-manager"><div class="name">Al Mukhtar</div><div class="tag-wrapper"><i class="fab fa-discord"></i><div class="tag">@1Mukhtar</div></div></div>
+            </div>
+        </div>
+
+        <div class="rank-card">
+            <div class="rank-title c-admin">🛡️ ADMINS</div>
+            <div class="members-row">
+                <div class="staff-item"><img src="elWazeer.png" class="avatar c-admin"><div class="name">Max</div><div class="tag-wrapper"><i class="fab fa-discord"></i><div class="tag">@elWazeer</div></div></div>
+            </div>
+        </div>
+
+        <div class="bottom-ranks">
+            <div class="rank-card" style="width: auto;">
+                <div class="rank-title c-srmod">⚡ SR. MOD</div>
+                <div class="staff-item"><img src="https://via.placeholder.com/42" class="avatar c-srmod"><div class="name">Srmod</div></div>
+            </div>
+
+            <div class="rank-card" style="width: auto;">
+                <div class="rank-title c-mod">⚖️ MODS</div>
+                <div class="members-row">
+                    <div class="staff-item"><img src="1Larsn.png" class="avatar c-mod"><div class="name">Pawfuu.</div></div>
+                    <div class="staff-item"><img src="1Larsn (1).png" class="avatar c-mod"><div class="name">Nvlyn</div></div>
+                </div>
+            </div>
+
+            <div class="rank-card" style="width: auto;">
+                <div class="rank-title c-helper">🌱 HELPERS</div>
+                <div class="staff-item"><img src="https://via.placeholder.com/42" class="avatar c-helper"><div class="name">Helper</div></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

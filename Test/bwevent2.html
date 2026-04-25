@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>MightyMC | Event Bracket</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+:root {
+    /* الألوان الجديدة: تدرج بنفسجي ليلي */
+    --bg-dark: #0f0c29; 
+    --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    --win-green: #0e9d58;
+    --lose-line: #d93025;
+    --card-bg: #ffffff;
+    --gold-accent: #ffd700;
+    --silver: #bdc3c7;
+    --bronze: #cd7f32;
+}
+
+       body {
+    background-color: var(--bg-dark);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed; /* لجعل التدرج ثابتاً عند التمرير */
+    /* باقي الخصائص تتركها كما هي */
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 1450px;
+}
+
+        .header { text-align: center; margin-bottom: 30px; }
+        /* إضافة ظل للنص لزيادة الوضوح على الخلفية الصفراء */
+        .server-title { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            margin: 0; 
+            letter-spacing: 2px; 
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+        .sub-title { 
+            font-size: 1.5rem; 
+            color: #fff; 
+            margin-top: -5px; 
+            background: rgba(0,0,0,0.2);
+            display: inline-block;
+            padding: 2px 15px;
+            border-radius: 20px;
+        }
+
+        .tournament-wrapper {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+            align-items: flex-start;
+        }
+
+        .round {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .round-1 { padding-top: 0; }
+        .round-2 { padding-top: 55px; gap: 145px; } 
+        .round-3 { padding-top: 155px; gap: 345px; }
+        .round-4 { padding-top: 355px; }
+
+       .round-name {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    opacity: 0.9;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1); /* غيرنا هذه من الأسود للأبيض الشفاف */
+    padding: 8px;
+    border-radius: 6px;
+}
+
+        .match-unit {
+            width: 210px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .team-box {
+            background: var(--card-bg);
+            height: 45px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border-bottom: 4px solid transparent;
+            transition: 0.2s;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .team-box input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: none;
+            padding: 0 15px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+            text-align: center;
+            outline: none;
+        }
+
+        .status-win { background-color: var(--win-green) !important; }
+        .status-win input { color: white !important; }
+        .status-lose { background-color: var(--lose-line) !important; }
+        .status-lose input { color: white !important; }
+
+        /* --- قسم منصة التتويج --- */
+     .podium-container {
+    /* ... الخصائص الأخرى ... */
+    background: rgba(255, 255, 255, 0.05); /* شفافية بيضاء بسيطة تعطي لمسة زجاجية */
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+        .rank-card {
+            width: 220px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            background: var(--card-bg); /* جعل المربعات بيضاء لتتناسب مع التحديد الأخضر */
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform 0.3s;
+        }
+
+        .rank-card:hover { transform: translateY(-5px); }
+
+        .rank-card input {
+            background: rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 6px;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            outline: none;
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        /* تنسيق الارتفاعات للمراكز */
+        .top-1 { border-top: 6px solid gold; height: 260px; order: 2; }
+        .top-2 { border-top: 6px solid var(--silver); height: 210px; order: 1; }
+        .top-3 { border-top: 6px solid var(--bronze); height: 180px; order: 3; }
+
+        .rank-label { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 5px; }
+        .crown { font-size: 3rem; margin-top: -15px; display: block; }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="server-title">MIGHTYMC</h1>
+        <div class="sub-title">Ranked BedWars Event</div>
+    </div>
+
+    <div class="tournament-wrapper">
+        <div class="round round-1">
+            <div class="round-name">Round of 16</div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 1"></div><div class="team-box"><input type="text" placeholder="Team 2"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 3"></div><div class="team-box"><input type="text" placeholder="Team 4"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 5"></div><div class="team-box"><input type="text" placeholder="Team 6"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 7"></div><div class="team-box"><input type="text" placeholder="Team 8"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 9"></div><div class="team-box"><input type="text" placeholder="Team 10"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 11"></div><div class="team-box"><input type="text" placeholder="Team 12"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 13"></div><div class="team-box"><input type="text" placeholder="Team 14"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Team 15"></div><div class="team-box"><input type="text" placeholder="Team 16"></div></div>
+        </div>
+
+        <div class="round round-2">
+            <div class="round-name">Quarter Finals</div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Winner M1"></div><div class="team-box"><input type="text" placeholder="Winner M2"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Winner M3"></div><div class="team-box"><input type="text" placeholder="Winner M4"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Winner M5"></div><div class="team-box"><input type="text" placeholder="Winner M6"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="Winner M7"></div><div class="team-box"><input type="text" placeholder="Winner M8"></div></div>
+        </div>
+
+        <div class="round round-3">
+            <div class="round-name">Semi Finals</div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="SF 1"></div><div class="team-box"><input type="text" placeholder="SF 2"></div></div>
+            <div class="match-unit"><div class="team-box"><input type="text" placeholder="SF 3"></div><div class="team-box"><input type="text" placeholder="SF 4"></div></div>
+        </div>
+
+        <div class="round round-4">
+            <div class="round-name">Grand Final</div>
+            <div class="match-unit">
+                <div class="team-box" style="border: 2px solid #8b6508; height: 55px;"><input type="text" placeholder="Finalist A"></div>
+                <div class="team-box" style="border: 2px solid #8b6508; height: 55px;"><input type="text" placeholder="Finalist B"></div>
+            </div>
+        </div>
+    </div>
+
+ 
+    <div class="podium-container">
+        <div class="rank-card top-2 team-box">
+            <div class="rank-label" style="color: var(--silver);">🥈 TOP 2</div>
+            <input type="text" placeholder="Runner Up">
+        </div>
+        <div class="rank-card top-1 team-box">
+            <span class="crown">🏆</span>
+            <div class="rank-label" style="color: #daa520;">TOP 1</div>
+            <input type="text" placeholder="CHAMPION">
+        </div>
+        <div class="rank-card top-3 team-box">
+            <div class="rank-label" style="color: var(--bronze);">🥉 TOP 3</div>
+            <input type="text" placeholder="3rd Place">
+        </div>
+    </div>
+
+
+    <script>
+        // هذا السكربت يطبق نظام الضغط على أي عنصر يحتوي على كلاس team-box
+        document.querySelectorAll('.team-box').forEach(box => {
+            box.addEventListener('click', function(e) {
+                // منع التغيير عند الضغط داخل حقل الكتابة نفسه
+                if (e.target.tagName === 'INPUT') return;
+                
+                if (this.classList.contains('status-win')) {
+                    this.classList.remove('status-win');
+                    this.classList.add('status-lose');
+                } else if (this.classList.contains('status-lose')) {
+                    this.classList.remove('status-lose');
+                } else {
+                    this.classList.add('status-win');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
